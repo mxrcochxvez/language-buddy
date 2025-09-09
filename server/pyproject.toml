@@ -1,0 +1,45 @@
+[project]
+name = "language-buddy-backend"
+version = "0.1.0"
+description = "FastAPI backend for the Language Buddy app"
+authors = [
+  { name = "Marco Chavez Jr.", email = "you@example.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "sqlalchemy",
+  "psycopg2-binary",
+  "pydantic",
+  "pydantic-settings",    # structured env management
+  "python-dotenv",
+  "httpx",
+  "openai"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "black",
+  "ruff",
+  "mypy",
+  "alembic"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
